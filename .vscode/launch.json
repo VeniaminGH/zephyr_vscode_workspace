@@ -4,6 +4,59 @@
 	// 	https://github.com/Marus/cortex-debug/blob/master/src/common.ts#LL249C25-L249C25
 	"configurations": [
 	{
+		"name": "STLINK Flash & Debug AppUnderDev",
+		"cwd": "${workspaceFolder:AppUnderDev}",
+		"executable": "${config:app.build_dir}/zephyr/zephyr.elf",
+		"request": "launch",
+		"type": "cortex-debug",
+		"servertype": "stlink",
+		"interface": "swd",
+		"toolchainPrefix": "arm-zephyr-eabi",
+		"svdFile": "${config:bsp.svd}",
+		"showDevDebugOutput": "both",
+		"configFiles": [
+				"${config:bsp.debug_config}"
+			],
+		"serialNumber": "",        //Set ST-Link ID if you use multiple at the same time
+		"runToEntryPoint": "main",
+		"v1": false,               //Change it depending on ST Link version
+		//"serverpath": "${config:STM32VSCodeExtension.cubeCLT.path}/STLink-gdb-server/bin/ST-LINK_gdbserver",
+		//"stm32cubeprogrammer":"${config:STM32VSCodeExtension.cubeCLT.path}/STM32CubeProgrammer/bin",
+		//"stlinkPath": "${config:STM32VSCodeExtension.cubeCLT.path}/STLink-gdb-server/bin/ST-LINK_gdbserver",   
+		//"armToolchainPath": "${config:STM32VSCodeExtension.cubeCLT.path}/GNU-tools-for-STM32/bin",
+		//"gdbPath":"${config:STM32VSCodeExtension.cubeCLT.path}/GNU-tools-for-STM32/bin/arm-none-eabi-gdb",
+		//"armToolchainPath": "~/zephyr-sdk-0.16.5-1/arm-zephyr-eabi/bin",
+		//"armToolchainPath": "${env:GNUARMEMB_TOOLCHAIN_PATH}/bin",
+		"serverArgs": ["-m","0"],
+		//"preLaunchTask": "Build project"
+	},
+	{
+		"name": "OPENOCD Flash & Debug AppUnderDev",
+		"cwd": "${workspaceFolder:AppUnderDev}",
+		"executable": "${config:app.build_dir}/zephyr/zephyr.elf",
+		"request": "launch",
+		"type": "cortex-debug",
+		"servertype": "openocd",
+		"interface": "swd",
+		"device": "${config:bsp.soc}",
+		"targetId": "${config:bsp.board}",
+		"boardId": "1",
+		"toolchainPrefix": "arm-zephyr-eabi",
+
+		"svdFile": "${config:bsp.svd}",
+		"showDevDebugOutput": "raw",
+		"configFiles": [
+				"${config:bsp.debug_config}"
+			],
+		"runToEntryPoint": "main",
+		//"serverpath": "${config:STM32VSCodeExtension.cubeCLT.path}/STLink-gdb-server/bin/ST-LINK_gdbserver",
+		//"stlinkPath": "${config:STM32VSCodeExtension.cubeCLT.path}/STLink-gdb-server/bin/ST-LINK_gdbserver",   
+		//"armToolchainPath": "${config:STM32VSCodeExtension.cubeCLT.path}/GNU-tools-for-STM32/bin",
+		//"gdbPath":"${config:STM32VSCodeExtension.cubeCLT.path}/GNU-tools-for-STM32/bin/arm-none-eabi-gdb",
+		//"armToolchainPath": "~/zephyr-sdk-0.16.5-1/arm-zephyr-eabi/bin",
+		//"armToolchainPath": "${env:GNUARMEMB_TOOLCHAIN_PATH}/bin",
+	},
+	{
 		"name": "Flash & Debug AppUnderDev",
 		"cwd": "${workspaceFolder:AppUnderDev}",
 		"executable": "${config:app.build_dir}/zephyr/zephyr.elf",
@@ -15,7 +68,8 @@
 		"targetId": "${config:bsp.board}",
 		"boardId": "1",
 		"toolchainPrefix": "arm-zephyr-eabi",
-		"armToolchainPath": "${env:GNUARMEMB_TOOLCHAIN_PATH}/bin",
+		//"armToolchainPath": "${env:GNUARMEMB_TOOLCHAIN_PATH}/bin",
+		//"armToolchainPath": "~/zephyr-sdk-0.16.5-1/arm-zephyr-eabi/bin",
 		"svdFile": "${config:bsp.svd}",
 		"showDevDebugOutput": "raw",
 		"configFiles": [
@@ -34,7 +88,8 @@
 		"targetId": "${config:bsp.board}",
 		"boardId": "1",
 		"toolchainPrefix": "arm-zephyr-eabi",
-		"armToolchainPath": "${env:GNUARMEMB_TOOLCHAIN_PATH}/bin",
+		//"armToolchainPath": "${env:GNUARMEMB_TOOLCHAIN_PATH}/bin",
+		//"armToolchainPath": "~/zephyr-sdk-0.16.5-1/arm-zephyr-eabi/bin",
 		"svdFile": "${config:bsp.svd}",
 		"showDevDebugOutput": "raw",
 		"configFiles": [

@@ -5,20 +5,23 @@
 		"includePath": [
 			"${workspaceFolder}/**",
 			"${env:GNUARMEMB_TOOLCHAIN_PATH}/arm-zephyr-eabi/**"
+			//"~/zephyr-sdk-0.16.5-1/arm-zephyr-eabi/**"
 		],
 		"defines": [],
 		"compilerPath": "${env:GNUARMEMB_TOOLCHAIN_PATH}/bin/arm-zephyr-eabi-gcc",
+		//"compilerPath": "~/zephyr-sdk-0.16.5-1/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc",
 		"cStandard": "c11",
 		"cppStandard": "c++17",
 		"IntelliSenseMode": "gcc-arm",
 		"browse": {
 			"path": [
 				"${GNUARMEMB_TOOLCHAIN_PATH}/arm-zephyr-eabi/include/*",
+				//"$~/zephyr-sdk-0.16.5-1/arm-zephyr-eabi/arm-zephyr-eabi/include/*",
 				"${workspaceFolder}/*"
 			],
-			"limitSymbolsToIncludedHeaders": true,
+			"limitSymbolsToIncludedHeaders": true
 		  }
-	},
+	}
 	],
 	"version": 4
 }
