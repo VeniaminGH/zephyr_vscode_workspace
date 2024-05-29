@@ -15,8 +15,9 @@
 			//"path": "../zephyr/samples/drivers/lora/send"
 			//"path": "../zephyr/samples/subsys/lorawan/class_a"
 			//"path": "../zephyr/samples/basic/button"
-			"path": "../zephyr_sandbox/button"
+			//"path": "../zephyr_sandbox/button"
 			//"path": "../zephyr_sandbox/lorawan/class_a"
+			"path": "../Weather-Station/app"
 		},
 		{
 			"name": "ZephyrTests",
