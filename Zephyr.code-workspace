@@ -30,7 +30,8 @@
 	],
 
 	"settings": {
-		"west": "${env:HOME}/.local/bin/west",
+		//"west": "${env:HOME}/.local/bin/west",
+		"west": "${env:HOME}/zephyrproject/.venv/bin/west",
 		"twister":  {
 			"host_test_arch": "qemu_x86",
 		},

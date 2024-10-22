@@ -14,7 +14,11 @@ configurations and tasks for [Zephyr](https://github.com/zephyrproject-rtos/zeph
 Here you can find the decription of this repository and it's usage. Depending on
 new features development new description paragraphs can be added.
 
-**Note:** Currently only `Ubuntu Linux` with `zephyr-sdk-0.16.0` were tested!
+**Note:** Currently only `Ubuntu LTS22.04` with `zephyr-sdk-0.16.x` were tested!
+
+No source level debugging is supported under `Ubuntu LTS24.04`.
+The STM32CubeCLT v1.16.0 required it to work is not yet supported for `Ubuntu LTS 24.04`.
+See https://www.st.com/en/development-tools/stm32cubeclt.html
 
 You're also welcome to made changes on this repository.
 Just fork it and provide PR with meaningfull changes you need.
@@ -116,18 +120,18 @@ from `HEAD`. You may change `HEAD-N` to check last `N` commits (see [.vscode/tas
 
 **Note:** Uncommited changes will not be checked!
 
-### 3.6 Generate Eclipse CDT4 - Task
-**HowToRun:** Press `F1` key and choose `Tasks: Run Build Task`, then choose `Generate Eclipse CDT4(commited only`
+### 3.7 West Flash App - Task
+**HowToRun:** Press `F1` key and choose `Tasks: Run Build Task`, then choose `West Flash App(commited only`
 
-This task creates `Eclipse CDT4` files to import the project into Eclipse.
+This task flashes the target with the app with West using openocd runner.
 
 ## 4. Launching the project
-To launch teh project you need [Cortex-Debug](https://marketplace.visualstudio.com/items?itemName=marus25.cortex-debug)
+To launch the project you need [Cortex-Debug](https://marketplace.visualstudio.com/items?itemName=marus25.cortex-debug)
 extension for Visual Studio Code. Please install it and follow it's installation guide.
 
 While installing `Cortex-Debug` extension you may need `OpenOCD` config files,
 which are placed in [openocd_stm32_config_files](https://github.com/Nukersson/zephyr_vscode_workspace/tree/master/openocd_stm32_config_files)
-folder. Currently there are onyl `stm32h745` depending config files (You're welcome to add your own).
+folder. Currently there is only `stm32h745` depending config files (You're welcome to add your own).
 
 It can be also helpfull to follow [OpenOCD for Zephyr](https://github.com/zephyrproject-rtos/openocd) installation description,
 especially if you're using `ST-LINK V3` debug adapter.
