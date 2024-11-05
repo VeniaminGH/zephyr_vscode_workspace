@@ -16,6 +16,7 @@
 			//"path": "../zephyr/samples/subsys/lorawan/class_a"
 			//"path": "../zephyr/samples/basic/button"
 			//"path": "../zephyr/samples/userspace/prod_consumer"
+			//"path": "../zephyr/samples/sensor/die_temp_polling"
 			//"path": "../zephyr_sandbox/button"
 			//"path": "../zephyr_sandbox/lorawan/class_a"
 			"path": "../Weather-Station/app"
