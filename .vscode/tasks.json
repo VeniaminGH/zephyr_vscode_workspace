@@ -76,7 +76,26 @@
 				"-p",
 				"${config:twister.host_test_arch}",
 				"-T",
-				"${workspaceFolder:AppUnderDev}"
+				"${workspaceFolder:ZephyrTests}"
+			],
+			"dependsOn": [
+				// "West Build Bootloader",
+				// "West Build App",
+			 ],
+			"problemMatcher": []
+		},
+		{
+			"label": "West Twister Unit Test",
+			"type": "process",
+			"group": "build",
+			"command": "${config:west}",
+			"args": [
+				"twister",
+				"--no-clean",
+				"--outdir",
+				"${config:app.twister_outdir}",
+				"-T",
+				"${workspaceFolder:ZephyrTests}"
 			],
 			"dependsOn": [
 				// "West Build Bootloader",
@@ -100,7 +119,7 @@
 				//"${config:bsp.board}/${config:bsp.soc}${config:bsp.cpu}",
 				"${config:bsp.board}",
 				"-T",
-				"${workspaceFolder:AppUnderDev}"
+				"${workspaceFolder:ZephyrTests}"
 			],
 			"dependsOn": [
 				// "West Build Bootloader",
@@ -113,7 +132,7 @@
 			"type": "shell",
 			"group": "build",
 			"command": "rm",
-			"args": ["-rf", "*twister-out*"],
+			"args": ["-rf", "${config:app.twister_outdir}"],
 			"dependsOn": [],
 			"problemMatcher": []
 		},

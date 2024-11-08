@@ -23,7 +23,10 @@
 		},
 		{
 			"name": "ZephyrTests",
-			"path": "../zephyr/tests/net/socket/websocket"
+			//"path": "../zephyr/tests/net/socket/websocket"
+			//"path": "../zephyr/tests/bluetooth/audio/ascs"
+			"path": "../Weather-Station/app/tests/unit/wst_cayenne_lpp/encode"
+			//"path": "../Weather-Station/app/tests/unit/wst_cayenne_lpp/decode"
 		},
 		{
 			"name": "BootloaderUnderDev",
@@ -53,6 +56,7 @@
 		"app": {
 			"name": "${workspaceFolder:AppUnderDev}",
 			"build_dir": "${workspaceFolder:AppUnderDev}/build",
+			"twister_outdir": "${workspaceFolder:AppUnderDev}/build/twister_out",
 			"zephyr_config": "",  // -DOVERLAY_CONFIG=<path_relative_to_sample> use ; for multiple files
 			//"zephyr_dtc_overlay": "",  // -DDTC_OVERLAY_FILE=<path_relative_to_sample> use ; for multiple files
 			"zephyr_dtc_overlay": "-DDTC_OVERLAY_FILE=boards/weather_nucleo_wl55jc.overlay"
