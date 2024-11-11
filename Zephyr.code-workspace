@@ -17,14 +17,20 @@
 			//"path": "../zephyr/samples/basic/button"
 			//"path": "../zephyr/samples/userspace/prod_consumer"
 			//"path": "../zephyr/samples/sensor/die_temp_polling"
+			//"path": "../zephyr/samples/sensor/bme280"
 			//"path": "../zephyr_sandbox/button"
 			//"path": "../zephyr_sandbox/lorawan/class_a"
 			"path": "../Weather-Station/app"
 		},
 		{
-			"name": "ZephyrTests",
+			"name": "SimUnderDev",
+			"path": "../zephyr/samples/subsys/sensing/simple"
+		},
+		{
+			"name": "TestUnderDev",
 			//"path": "../zephyr/tests/net/socket/websocket"
 			//"path": "../zephyr/tests/bluetooth/audio/ascs"
+			//"path": "../zephyr/tests/drivers/i2c/i2c_bme688"
 			"path": "../Weather-Station/app/tests/unit/wst_cayenne_lpp/encode"
 			//"path": "../Weather-Station/app/tests/unit/wst_cayenne_lpp/decode"
 		},
@@ -38,8 +44,11 @@
 		//"west": "${env:HOME}/.local/bin/west",
 		"west": "${env:HOME}/zephyrproject/.venv/bin/west",
 		"twister":  {
+			//"host_test_arch": "native_sim",
 			"host_test_arch": "qemu_x86",
+			//"host_test_arch": "nucleo_wl55jc",
 		},
+
 		// Board support package settings:
 		"bsp": {
 			"cpu": "",  // must be used if multi core system (put /m4 or /m7 here for example)
@@ -52,13 +61,29 @@
 			"debug_config": "${config:bsp.board_path}/support/openocd.cfg"
 		},
 
+		// Sim settings:
+		"sim": {
+			"name": "${workspaceFolder:SimUnderDev}",
+			"build_dir": "${workspaceFolder}/build",
+			"zephyr_dtc_overlay": "",  // -DDTC_OVERLAY_FILE=<path_relative_to_sample> use ; for multiple files
+		},
+		
+		// Test settings:
+		"test": {
+			"name": "${workspaceFolder:TestUnderDev}",
+			"twister_outdir": "${workspaceFolder}/twister-out",
+			"testcase": "cayenne_lpp.encode",
+			//"testcase": "cayenne_lpp.decode",
+			//"zephyr_dtc_overlay": "",  // -DDTC_OVERLAY_FILE=<path_relative_to_sample> use ; for multiple files
+		},
+
 		// App settings:
 		"app": {
 			"name": "${workspaceFolder:AppUnderDev}",
-			"build_dir": "${workspaceFolder:AppUnderDev}/build",
-			"twister_outdir": "${workspaceFolder:AppUnderDev}/build/twister_out",
+			"build_dir": "${workspaceFolder}/build",
 			"zephyr_config": "",  // -DOVERLAY_CONFIG=<path_relative_to_sample> use ; for multiple files
 			//"zephyr_dtc_overlay": "",  // -DDTC_OVERLAY_FILE=<path_relative_to_sample> use ; for multiple files
+			//"zephyr_dtc_overlay": "-DDTC_OVERLAY_FILE=arduino_i2c.overlay"
 			"zephyr_dtc_overlay": "-DDTC_OVERLAY_FILE=boards/weather_nucleo_wl55jc.overlay"
 			"compile_args": ""
 		},

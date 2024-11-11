@@ -4,6 +4,22 @@
 	// 	https://github.com/Marus/cortex-debug/blob/master/src/common.ts#LL249C25-L249C25
 	"configurations": [
 	{
+		"name": "Debug SimUnderDev",
+		"cwd": "${workspaceFolder:SimUnderDev}",
+		"program": "${config:sim.build_dir}/zephyr/zephyr.exe",
+		"request": "launch",
+		"type": "cppdbg",
+		"stopAtEntry": true,
+	},
+	{
+		"name": "Debug TestUnderDev",
+		"cwd": "${workspaceFolder:TestUnderDev}",
+		"program": "${config:test.twister_outdir}/unit_testing/${config:test.testcase}/testbinary",
+		"request": "launch",
+		"type": "cppdbg",
+		"stopAtEntry": true,
+	},
+	{
 		"name": "STLINK Flash & Debug AppUnderDev",
 		"cwd": "${workspaceFolder:AppUnderDev}",
 		"executable": "${config:app.build_dir}/zephyr/zephyr.elf",

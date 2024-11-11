@@ -67,16 +67,40 @@
 			"problemMatcher": [ "$gcc" ]
 		},
 		{
+			"label": "West Build Sim",
+			"type": "process",
+			"group": "build",
+			"command": "${config:west}",
+			"args": [
+				"build",
+				"-p",
+				"auto",
+				"-d",
+				"${config:sim.build_dir}",
+				"-b",
+				"native_sim",
+				"${config:sim.name}",
+				"${config:sim.zephyr_dtc_overlay}",
+			],
+			"dependsOn": [
+				// "Clean Build",
+			 ],
+			"problemMatcher": [ "$gcc" ]
+		},
+		{
 			"label": "West Twister Test",
 			"type": "process",
 			"group": "build",
 			"command": "${config:west}",
 			"args": [
 				"twister",
-				"-p",
-				"${config:twister.host_test_arch}",
+				"--no-clean",
+				"--outdir",
+				"${config:test.twister_outdir}",
+				//"-p",
+				//"${config:twister.host_test_arch}",
 				"-T",
-				"${workspaceFolder:ZephyrTests}"
+				"${workspaceFolder:TestUnderDev}"
 			],
 			"dependsOn": [
 				// "West Build Bootloader",
@@ -93,9 +117,9 @@
 				"twister",
 				"--no-clean",
 				"--outdir",
-				"${config:app.twister_outdir}",
+				"${config:test.twister_outdir}",
 				"-T",
-				"${workspaceFolder:ZephyrTests}"
+				"${workspaceFolder:TestUnderDev}"
 			],
 			"dependsOn": [
 				// "West Build Bootloader",
@@ -119,7 +143,7 @@
 				//"${config:bsp.board}/${config:bsp.soc}${config:bsp.cpu}",
 				"${config:bsp.board}",
 				"-T",
-				"${workspaceFolder:ZephyrTests}"
+				"${workspaceFolder:TestUnderDev}"
 			],
 			"dependsOn": [
 				// "West Build Bootloader",
@@ -132,7 +156,16 @@
 			"type": "shell",
 			"group": "build",
 			"command": "rm",
-			"args": ["-rf", "${config:app.twister_outdir}"],
+			"args": ["-rf", "${config:test.twister_outdir}"],
+			"dependsOn": [],
+			"problemMatcher": []
+		},
+		{
+			"label": "Clean Sim Output",
+			"type": "shell",
+			"group": "build",
+			"command": "rm",
+			"args": ["-rf", "${config:sim.build_dir}"],
 			"dependsOn": [],
 			"problemMatcher": []
 		},

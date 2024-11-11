@@ -2,3 +2,4 @@
 _c_cpp_properties.json
 *.log
 *twister-out*
+*build*
