@@ -24,7 +24,8 @@
 		},
 		{
 			"name": "SimUnderDev",
-			"path": "../zephyr/samples/subsys/sensing/simple"
+			//"path": "../zephyr/samples/subsys/sensing/simple"
+			"path": "../Weather-Station/app/tests/sim/wst_sensor_sim"
 		},
 		{
 			"name": "TestUnderDev",
