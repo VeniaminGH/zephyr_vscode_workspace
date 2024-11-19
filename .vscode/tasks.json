@@ -81,6 +81,7 @@
 				"native_sim",
 				"${config:sim.name}",
 				"${config:sim.zephyr_dtc_overlay}",
+				"${config:sim.zephyr_dts_root}"
 			],
 			"dependsOn": [
 				// "Clean Build",
