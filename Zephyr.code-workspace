@@ -4,6 +4,10 @@
 			"path": "."
 		},
 		{
+			"name": "Weather-Station",
+			"path": "../Weather-Station/"
+		},
+		{
 			"name": "zephyrproject",
 			"path": "../"
 		},
