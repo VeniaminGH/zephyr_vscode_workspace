@@ -104,6 +104,21 @@
 			"problemMatcher": [ "$gcc" ]
 		},
 		{
+			"label": "West ROM Report",
+			"type": "process",
+			"group": "build",
+			"command": "${config:west}",
+			"args": [
+				"build",
+				"-t",
+				"rom_report"
+			],
+			"dependsOn": [
+				// "Clean Build",
+			 ],
+			"problemMatcher": [ "$gcc" ]
+		},
+		{
 			"label": "West Twister Test",
 			"type": "process",
 			"group": "build",
