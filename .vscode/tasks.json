@@ -89,6 +89,21 @@
 			"problemMatcher": [ "$gcc" ]
 		},
 		{
+			"label": "West RAM Report",
+			"type": "process",
+			"group": "build",
+			"command": "${config:west}",
+			"args": [
+				"build",
+				"-t",
+				"ram_report"
+			],
+			"dependsOn": [
+				// "Clean Build",
+			 ],
+			"problemMatcher": [ "$gcc" ]
+		},
+		{
 			"label": "West Twister Test",
 			"type": "process",
 			"group": "build",
